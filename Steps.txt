@@ -1,0 +1,21 @@
+Demonstration Steps
+1. A simple server that display a static text Explain the code: Event Driving/Handling
+vertx run http/Servertxt.groovy
+
+2. Demo websocks: Client send data to server, server receive it and send a msg back to browser through websocks
+
+ vertx run websocks/WebSocksServer.groovy
+ change ws.html to display the data from server instead of alert
+
+3. eventbus_pubsub receiver to receive msg and send to websocks
+	vertx run eventbus_pubsub/Receiver.groovy -cluster
+	vertx run eventbus_pubsub/Sender.groovy -cluster
+
+4. Add receiver to websockserver and send data to browser
+	vertx run websockets_eventbus/WebSocketsServer.groovy -cluster
+	vertx run websockets_pubsub/Sender.groovy -cluster
+	show in browser that the data is updated 
+5. sender search internet and send result to websockserver and send data to browser
+	vertx run websockets_search/WebSocketsServer.groovy -cluster
+	vertx run websockets_search/Sender.groovy -cluster
+	show in browser that the data is updated 
