@@ -14,11 +14,11 @@
 * limitations under the License.
 */
 
-def eb = vertx.eventBus
+def eb = vertx.eventBus()
 
 // Send a message every second
 
 	def i=0
 vertx.setPeriodic(1000) {
-  eb.publish("news-feed", "Some news! "+ i++)
+  eb.send("news-feed", "Some news! "+ i++)
 }

@@ -1,0 +1,19 @@
+1. Demo Simple server
+vertx run server1.groovy
+vertx run server_js.js
+2. Demo Chat Server (static page, event bus)
+vertx run chatserver.groovy
+3. Attach more vertx using cluster
+vertx run chatserver.groovy -cluster
+vertx run anotherServer.groovy -cluster
+
+4. Scale (topic, subscribe)
+
+vertx run anotherServer.groovy -cluster -instance 10
+
+vertx run server_ghost.js -cluster -instance 10
+
+5. point to point
+
+vertx run Sender.groovy -cluster 
+vertx run Receiver.groovy -cluster -instance 10
